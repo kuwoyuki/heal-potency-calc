@@ -1,0 +1,84 @@
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.flexOuter,
+.flexInner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flexOuter {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.flexOuter div,
+.flexInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flexInner {
+  padding: 0 8px;
+  justify-content: flex-start;
+}
+
+.flexOuter > div:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.flexOuter div label,
+.flexOuter div p {
+  padding: 4px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.flexOuter > div > label,
+.flexOuter div p {
+  flex: 1 0 120px;
+  max-width: 160px;
+}
+
+.flexOuter > div > label + *,
+.flexInner {
+  flex: 1 0 120px;
+}
+
+.flexOuter div p {
+  margin: 0;
+}
+
+.flexOuter div input:not([type='checkbox']),
+.flexOuter div textarea {
+  padding: 8px;
+  border: none;
+}
+
+.flexOuter input[type=submit] {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #fff;
+  color: #333;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.flexInner div {
+  width: 100px;
+}
+
+.highlight {
+  color: rgb(46, 204, 113);
+  font-size: 2.3rem;
+}
