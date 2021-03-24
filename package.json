@@ -4,10 +4,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "start": "sirv dist --single --host"
   },
   "dependencies": {
-    "preact": "^10.5.13"
+    "preact": "^10.5.13",
+    "sirv-cli": "^1.0.11"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",
