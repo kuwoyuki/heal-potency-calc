@@ -17,7 +17,8 @@ const weaponDamage = (levelMod: any[], jobMod: number, wd: number) =>
 const healingMagicPotency = (hmp: number, level: number, levelMod: any[]) => {
   const mainMod = levelMod[2] as number;
   let M, D;
-  // until level 60, M = Floor [ ( ( Level - 50 ) x 2.5 ) + 75 ] and D = Base_DET
+  // until level 60, M = Floor [ ( ( Level - 50 ) x 2.5 ) + 75 ], D = Base_DET
+  // after level 60 SQEX most likely changes D to make the healing weaker than damage
   if (level <= 60) {
     M = ~~((level - 50) * 2.5 + 75);
     D = levelMod[2];
