@@ -37,7 +37,7 @@ const healingMagicPotency = (hmp: number, level: number, levelMod: any[]) => {
  * f(DET) = ⌊ 130 · ( DET - LevelModLv, Main )/ LevelModLv, DIV + 1000 ⌋
  */
 const determination = (det: number, levelMod: any[]) =>
-  ~~(130 * (det - (levelMod[2] as number))) / (levelMod[4] as number) + 1000;
+  ~~((130 * (det - (levelMod[2] as number))) / (levelMod[4] as number) + 1000);
 
 /**
  * f(SPD) = ⌊ 130 · ( SPD - LevelModLv, SUB )/ LevelModLv, DIV + 1000 ⌋
@@ -45,7 +45,7 @@ const determination = (det: number, levelMod: any[]) =>
  * @param level
  */
 const speed = (spd: number, levelMod: any[]) =>
-  ~~(130 * (spd - levelMod[3])) / levelMod[4] + 1000;
+  ~~((130 * (spd - levelMod[3])) / levelMod[4] + 1000);
 
 /**
  * f(CRIT) = ⌊ 200 · ( CRIT - LevelModLv, SUB )/ LevelModLv, DIV + 1400 ⌋
@@ -53,6 +53,6 @@ const speed = (spd: number, levelMod: any[]) =>
  * @param levelMod
  */
 const crit = (crit: number, levelMod: any[]) =>
-  ~~(200 * (crit - levelMod[3])) / levelMod[4] + 1400;
+  ~~((200 * (crit - levelMod[3])) / levelMod[4] + 1400);
 
 export { weaponDamage, healingMagicPotency, determination, speed, crit };
