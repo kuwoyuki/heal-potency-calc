@@ -19,14 +19,20 @@ const Signup = () => {
 
   const handleChange = (e: any) => {
     const { name, value } = e.currentTarget;
-    setState((prevState: any) => ({
-      ...prevState,
+    setState((p: any) => ({
+      ...p,
       [name]: +value,
     }));
   };
 
   const handleSubmit = (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
     e.preventDefault();
+    if (!critOn) {
+      setState((p) => ({ ...p, crit: 0 }));
+    }
+    if (!hotOn) {
+      setState((p) => ({ ...p, sps: 0 }));
+    }
 
     console.debug(state);
 
