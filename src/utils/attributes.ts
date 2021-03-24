@@ -14,14 +14,23 @@ const weaponDamage = (levelMod: any[], jobMod: number, wd: number) =>
  *
  * @param {number} hmp
  */
-const healingMagicPotency = (hmp: number, level: 70 | 80, levelMod: any[]) => {
+const healingMagicPotency = (hmp: number, level: number, levelMod: any[]) => {
   const mainMod = levelMod[2] as number;
-  // todo: figure out how to get the divisor?
-  if (![70, 80].includes(level)) {
-    throw new Error("We don't support other levels yet.");
+  let M, D;
+  // until level 60, M = Floor [ ( ( Level - 50 ) x 2.5 ) + 75 ] and D = Base_DET
+  if (level <= 60) {
+    M = ~~((level - 50) * 2.5 + 75);
+    D = levelMod[2];
+  } else if (level === 70) {
+    M = 125;
+    D = 330;
+  } else if (level === 80) {
+    M = 100;
+    D = 304;
+  } else {
+    throw new Error("no M / D values for this level");
   }
-  const d = level === 70 ? 264 : 304;
-  return ~~((100 * (hmp - mainMod)) / d) + 100;
+  return ~~((M * (hmp - mainMod)) / D) + 100;
 };
 /**
  * f(DET) = ⌊ 130 · ( DET - LevelModLv, Main )/ LevelModLv, DIV + 1000 ⌋

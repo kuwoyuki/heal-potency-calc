@@ -11,7 +11,7 @@ const findJobMod = (job: string) => jobMods.find(([, x]) => x === job);
 
 const heal = (
   pot: number,
-  level: 70 | 80,
+  level: number,
   job: string,
   wd: number,
   hmp: number,
@@ -35,13 +35,18 @@ const heal = (
     ) / 1000
   );
   const h2 =
-    (~~(
-      ~~(~~(h1 * (sps ? speed(sps, levelMod) : 1000)) / 1000) *
-      weaponDamage(levelMod, jobMod, wd)
-    ) /
-      100) *
-    1.3; // 1.3 is Maim and Mend / Magick and Mend trait
-  return ~~(~~((~~(h2 * rollMod) * (crit ? critFn(crit, levelMod) : 1000)) / 1000) * buffMod);
+    ~~(
+      (~~(
+        ~~(~~(h1 * (sps ? speed(sps, levelMod) : 1000)) / 1000) *
+        weaponDamage(levelMod, jobMod, wd)
+      ) /
+        100) *
+      130
+    ) / 100; // 1.3 is Maim and Mend / Magick and Mend trait
+  return ~~(
+    ~~((~~(h2 * rollMod) * (crit ? critFn(crit, levelMod) : 1000)) / 1000) *
+    buffMod
+  );
 };
 
 export { heal };

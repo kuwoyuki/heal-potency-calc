@@ -4,6 +4,7 @@ import { heal } from "../utils/healing";
 
 const Signup = () => {
   const [state, setState] = useState({
+    level: 80,
     potency: 0,
     weaponDmg: 0,
     mnd: 0,
@@ -24,7 +25,6 @@ const Signup = () => {
       [name]: +value,
     }));
   };
-
   const handleSubmit = (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
     e.preventDefault();
     if (!critOn) {
@@ -33,13 +33,11 @@ const Signup = () => {
     if (!hotOn) {
       setState((p) => ({ ...p, sps: 0 }));
     }
-
     console.debug(state);
-
     setHealing(
       ~~heal(
         state.potency,
-        80,
+        state.level,
         "WHM",
         state.weaponDmg,
         state.mnd,
@@ -92,6 +90,40 @@ const Signup = () => {
               onChange={handleChange}
             />
           </div>
+          <div>
+            <label>roll modifier</label>
+            <input
+              type="number"
+              name="rollMod"
+              min="0.97"
+              max="1.03"
+              step=".01"
+              value={state.rollMod}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>buff modifier</label>
+            <input
+              type="number"
+              name="buffMod"
+              min="0.05"
+              max="5"
+              step=".05"
+              value={state.buffMod}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Level</label>
+            <select name="level" value={state.level} onChange={handleChange}>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+            </select>
+          </div>
+
           {hotOn && (
             <div>
               <label>SpS</label>

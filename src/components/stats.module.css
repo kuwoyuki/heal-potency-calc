@@ -58,13 +58,14 @@
   margin: 0;
 }
 
-.flexOuter div input:not([type='checkbox']),
+.flexOuter div input:not([type="checkbox"]),
+.flexOuter div select,
 .flexOuter div textarea {
   padding: 8px;
   border: none;
 }
 
-.flexOuter input[type=submit] {
+.flexOuter input[type="submit"] {
   margin-left: auto;
   padding: 8px 16px;
   border: none;
