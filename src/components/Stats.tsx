@@ -2,7 +2,7 @@ import { useState } from "preact/hooks";
 import classes from "./stats.module.css";
 import { heal } from "../utils/healing";
 
-const Signup = () => {
+const Stats = () => {
   const [state, setState] = useState({
     level: 80,
     potency: 0,
@@ -181,4 +181,4 @@ const Signup = () => {
     </div>
   );
 };
-export default Signup;
+export default Stats;
