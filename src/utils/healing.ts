@@ -34,8 +34,6 @@ const heal = (
       100
     ) / 1000
   );
-
-  console.log(h1);
   const h2 =
     (~~(
       ~~(~~(h1 * (sps ? speed(sps, levelMod) : 1000)) / 1000) *
@@ -43,10 +41,7 @@ const heal = (
     ) /
       100) *
     1.3; // 1.3 is Maim and Mend / Magick and Mend trait
-  console.debug(h2);
-  const h3 = ~~(h2 * rollMod);
-  console.debug(h3, buffMod, crit);
-  return ~~(~~((h3 * (crit ? critFn(crit, levelMod) : 1000)) / 1000) * buffMod);
+  return ~~(~~((~~(h2 * rollMod) * (crit ? critFn(crit, levelMod) : 1000)) / 1000) * buffMod);
 };
 
 export { heal };
