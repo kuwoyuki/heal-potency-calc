@@ -7,7 +7,8 @@ import {
 } from "./attributes";
 import { jobMods, levelMods } from "./mods";
 
-const findJobMod = (job: string) => jobMods.find(([, x]) => x === job);
+const findJobMod = (job: string) =>
+  jobMods.find(([, x]) => (x as string).startsWith(job));
 
 const heal = (
   pot: number,

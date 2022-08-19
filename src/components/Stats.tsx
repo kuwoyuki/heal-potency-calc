@@ -121,6 +121,7 @@ const Stats = () => {
               <option value="60">60</option>
               <option value="70">70</option>
               <option value="80">80</option>
+              <option value="90">90</option>
             </select>
           </div>
 

@@ -28,6 +28,9 @@ const healingMagicPotency = (hmp: number, level: number, levelMod: any[]) => {
   } else if (level === 80) {
     M = 100;
     D = 304;
+  } else if (level === 90) {
+    M = 569;
+    D = 1522;
   } else {
     throw new Error("no M / D values for this level");
   }
